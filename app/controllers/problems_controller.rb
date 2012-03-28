@@ -1,4 +1,6 @@
 class ProblemsController < ApplicationController
+  layout "userinterface"
+
   # include Texrender
   # GET /problems
   # GET /problems.xml

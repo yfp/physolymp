@@ -14,19 +14,19 @@
 				.container	
 					%ul.nav
 						%li
-							%a.brand{:href=>""} PhOl.Àäìèí
+							%a.brand{:href=>""} PhOl.ÐÐ´Ð¼Ð¸Ð½
 						%li
-							%a{:href=>""} Ðåäàêòîð çàäà÷
+							%a{:href=>""} Ð ÐµÐ´Ð°ÐºÑ‚Ð¾Ñ€ Ð·Ð°Ð´Ð°Ñ‡
 						%li
-							%a{:href=>""} Íîâîñòè
+							%a{:href=>""} ÐÐ¾Ð²Ð¾ÑÑ‚Ð¸
 						%li
-							%a{:href=>""} Ôîòîãàëåðåè
+							%a{:href=>""} Ð¤Ð¾Ñ‚Ð¾Ð³Ð°Ð»ÐµÑ€ÐµÐ¸
 						%li
-							%a{:href=>""} Îëèìïèàäû
+							%a{:href=>""} ÐžÐ»Ð¸Ð¼Ð¿Ð¸Ð°Ð´Ñ‹
 						%li
-							%a{:href=>""} Âèäåî
+							%a{:href=>""} Ð’Ð¸Ð´ÐµÐ¾
 						%li
-							%a{:href=>""} Ñòàòè÷åñêèé êîíòåíò
+							%a{:href=>""} Ð¡Ñ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚
 					%ul.nav.pull-right
 						%li
 							%form.navbar-search
@@ -36,7 +36,7 @@
 				.span8
 					%ul.breadcrumb
 						%li
-							%a{ :href => '/main' } Ãëàâíàÿ
+							%a{ :href => '/main' } Ð“Ð»Ð°Ð²Ð½Ð°Ñ
 							%span.divider /
 						- if @breadcrumbs
 							- @breadcrumbs.each do |elem|
@@ -58,21 +58,21 @@
 					/ .btn-group.pull-left
 					/ 	%a.btn.btn-info.dropdown-toggle{:href=>"",:"data-toggle"=>"dropdown"}
 					/ 		%i.icon-user.icon-white
-					/ 		Åðîôååâ Èâàí
+					/ 		Ð•Ñ€Ð¾Ñ„ÐµÐµÐ² Ð˜Ð²Ð°Ð½
 					/ 		%span.caret
 					/ 	%ul.dropdown-menu.pull-right
 					/ 		%li 
 					/ 			%a{:href=>""} 
 					/ 				%i.icon-home
-					/ 				Ìîé êàáèíåò
+					/ 				ÐœÐ¾Ð¹ ÐºÐ°Ð±Ð¸Ð½ÐµÑ‚
 					/ 		%li 
 					/ 			%a{:href=>""} 
 					/ 				%i.icon-cog
-					/ 				Íàñòðîéêè
+					/ 				ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸
 					/ 		%li 								
 					/ 			%a{:href=>""} 
 					/ 				%i.icon-off
-					/ 				Âûéòè
+					/ 				Ð’Ñ‹Ð¹Ñ‚Ð¸
 			- flash.each do |key, msg|
 				= content_tag :div, msg, :class => [key, " message"], :id => "notice_#{key}"							
 			= yield

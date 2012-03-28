@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   check_authorization
+  layout "mainface"
 
   before_filter :create_breadcrumbs 
 
@@ -11,10 +12,10 @@ class PagesController < ApplicationController
   # GET /pages.xml
   def index
     @pages = Page.all
-
+    
     respond_to do |format|
       format.html #{ render :layout => "empty" } # index.html.erb
-      format.xml  { render :xml => @pages, :layout => "userinterface" }
+      format.xml  { render :xml => @pages}
     end
   end
 
@@ -24,7 +25,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
 
     respond_to do |format|
-      format.html { render :layout => "application" }# show.html.erb
+      format.html # show.html.erb
       format.xml  { render :xml => @page }
     end
   end
