@@ -1,0 +1,78 @@
+!!!
+%html
+	%head
+		%title Phol
+		-#= stylesheet_link_tag :defaults
+		= stylesheet_link_tag "/stylesheets/bootstrap/bootstrap.min.css"
+		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+		= javascript_include_tag :defaults
+		= yield :javascript_includes
+		= csrf_meta_tag
+	%body
+		.navbar
+			.navbar-inner
+				.container	
+					%ul.nav
+						%li
+							%a.brand{:href=>""} PhOl.Админ
+						%li
+							%a{:href=>""} Редактор задач
+						%li
+							%a{:href=>""} Новости
+						%li
+							%a{:href=>""} Фотогалереи
+						%li
+							%a{:href=>""} Олимпиады
+						%li
+							%a{:href=>""} Видео
+						%li
+							%a{:href=>""} Статический контент
+					%ul.nav.pull-right
+						%li
+							%form.navbar-search
+								%input.search-query{:type=>"text",:placeholder=>"Search"}
+		.container-fluid
+			.row-fluid
+				.span8
+					%ul.breadcrumb
+						%li
+							%a{ :href => '/main' } Главная
+							%span.divider /
+						- if @breadcrumbs
+							- @breadcrumbs.each do |elem|
+								%li
+									/ %p= elem
+									%a{ :href => '/'+elem[:href] }= elem[:text]
+									%span.divider /
+				.span2
+					%h2 ID:30445
+				.span2
+					- if current_user
+						= "Logged in as #{current_user.email}."
+						= link_to "Log out", logout_path
+					- else
+						= link_to "Sign up", signup_path
+						or
+						= link_to "log in", login_path
+						= '.'
+					/ .btn-group.pull-left
+					/ 	%a.btn.btn-info.dropdown-toggle{:href=>"",:"data-toggle"=>"dropdown"}
+					/ 		%i.icon-user.icon-white
+					/ 		Ерофеев Иван
+					/ 		%span.caret
+					/ 	%ul.dropdown-menu.pull-right
+					/ 		%li 
+					/ 			%a{:href=>""} 
+					/ 				%i.icon-home
+					/ 				Мой кабинет
+					/ 		%li 
+					/ 			%a{:href=>""} 
+					/ 				%i.icon-cog
+					/ 				Настройки
+					/ 		%li 								
+					/ 			%a{:href=>""} 
+					/ 				%i.icon-off
+					/ 				Выйти
+			- flash.each do |key, msg|
+				= content_tag :div, msg, :class => [key, " message"], :id => "notice_#{key}"							
+			= yield

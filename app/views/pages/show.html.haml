@@ -1,0 +1,6 @@
+%h1= @page.title
+%p
+  = link_to 'back', pages_path
+  = link_to 'edit', edit_page_path(@page)
+
+%p= @page.content

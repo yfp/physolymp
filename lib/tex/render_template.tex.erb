@@ -1,0 +1,38 @@
+\documentclass[<%= @tex_size%>pt,a5paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{mathtext}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\usepackage{xspace}
+\usepackage{mathrsfs}
+\usepackage[usenames]{color}
+\pagestyle{empty}
+
+\newlength\step
+\newlength\hght
+\step=<%= @step%>pt
+
+\def\fitit#1{\hght=0pt\loop\ifdim#1>\hght\advance\hght by \step\repeat}
+\def\makepage#1{%
+	%\newsavebox{\mybox}%
+	\savebox\mybox{#1}\fitit{\ht\mybox}%
+	\showthe\hght%
+	\rule{.6\step}{.5\step}\rule{0pt}{\hght}\hspace{.4\step}%
+	\copy\mybox\newpage%
+}
+
+	\hoffset=-1in
+	\oddsidemargin=0pt
+
+	\voffset=-1in
+	\topmargin=0pt
+	\headsep=0pt
+	\headheight=0pt
+
+\begin{document}
+	<% @arr.each do |formula| %>%
+		\makepage{<%= formula%>}%
+	<% end %>%
+\end{document}

@@ -1,0 +1,21 @@
+%h1 Статические страницы
+%p= link_to 'Новая страница', new_page_path
+
+%table
+  %thead
+    %tr
+      %th id
+      %th= Page.human_attribute_name :name
+      %th= Page.human_attribute_name :title
+      %th= Page.human_attribute_name :parent_id
+      %th{:colspan => 2}= 'actions'
+  
+  %tbody
+    - for page in @pages
+      %tr{ :class => cycle(:odd, :even) }
+        %td= page.id
+        %td= page.name
+        %td= page.title
+        %td= page.parent_id
+        %td== #{link_to 'show', page.url},
+        %td== #{link_to 'edit', edit_page_path(page)}

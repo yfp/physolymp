@@ -1,0 +1,38 @@
+-content_for :javascript_includes do
+   = javascript_include_tag "problem/list.js"
+.span3
+   %ul
+      - @problems.each do |problem|
+         %li{:data => {:id => problem.id}}= problem.name
+.span9
+   / %h1 Существующие проблемы
+   / %table
+   /    %tr
+   /       %th Name
+   /       %th Statement
+   /       %th Solution
+   /       %th Answer
+   /       %th
+   /       %th
+   /       %th
+   /    - @problems.each do |problem|
+   /       %tr
+   /          %td= problem.name
+   /          %td= problem.statement
+   /          %td= problem.solution
+   /          %td= problem.answer
+   /          %td= link_to 'Show', problem
+   /          %td= link_to 'Edit', edit_problem_path(problem)
+   /          %td= link_to 'Destroy', problem, :confirm => 'Are you sure?', :method => :delete
+   / %br/
+   / = link_to 'New Problem', new_problem_path
+   %h1
+      Задача
+      %span#problem-name
+   #problem-text
+
+   %div{:style => "font-size:20px; font-family:\"Times New Roman\",Georgia,Serif;"}
+      Book
+      - @log.each do |img|
+         %img{:src => img[:url], :style=>"vertical-align:-#{img[:depth]}px;"}
+         и ещё

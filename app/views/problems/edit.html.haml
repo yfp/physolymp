@@ -1,0 +1,117 @@
+/ %h1 Editing problem
+/ = render 'form'
+/ = link_to 'Show', @problem
+/ |
+/ \#{link_to 'Back', problems_path}
+-content_for :javascript_includes do
+	= javascript_include_tag "_libs/jquery/keymaster.min.js"
+	= javascript_include_tag "problem/edit.js"
+
+.container-fluid
+	.row-fluid
+		.span10
+			%form
+				.row-fluid
+					.span6
+						%label Название
+						%input.span5#problem-name{:type=>"text",:placeholder=>"Название задачи..."}
+					.span3
+						%label Автор
+						.btn-group.pull-left
+							%a.btn.dropdown-toggle.selectable#author-select{:href=>"",:"data-toggle"=>"dropdown"}
+								%span.btn-text
+								%span.caret
+							%ul.dropdown-menu.pull-right
+								%li#kozel
+									%a{:href=>""} Козел С.М.
+								%li#alexandrov
+									%a{:href=>""} Александров Д.А.
+								%li#varlamov
+									%a{:href=>""} Варламов С.Д.
+								%li#zilberman
+									%a{:href=>""} Зильберман А.Р.
+					.span3
+						%label Секретность
+						.btn-group.pull-left
+							%a.btn.btn-danger.dropdown-toggle.selectable#privacy{:href=>"",:"data-toggle"=>"dropdown"}
+								%span.btn-text
+								%span.caret
+							%ul.dropdown-menu.pull-right
+								%li#secret
+									%a{:href=>""} Секретно
+								%li#private
+									%a{:href=>""} Внутреннее пользование
+								%li#public
+									%a{:href=>""} Общий доступ
+				.row-fluid
+					.span9
+						%label Теги
+						%input.span7{:type=>"text",:placeholder=>"Имена тегов через запятую..."}
+						%br
+						%a{:href=>""} Показать дополнительные параметры
+					.span3
+						%br
+						%a{:href=>""} 
+							Скачать файл-задание
+							%i.icon-file
+		.span2
+			%p 
+				%strong Сейчас редактируем:
+			.btn-group.pull-left
+				%a.btn.dropdown-toggle.selectable#problem-part-select{:href=>"",:"data-toggle"=>"dropdown"}
+					%span.btn-text
+					%span.caret
+				%ul.dropdown-menu.pull-right
+					%li#statement
+						%a{:href=>""} Условие
+					%li#solution
+						%a{:href=>""} Решение
+					%li#scoring
+						%a{:href=>""} Разбалловка
+.container-fluid
+	.row-fluid
+		.span10
+			.row-fluid
+				.span6
+					%textarea.span5#problem-edit{:style=>"height:300px;width:100%;"}
+					%a.btn{:href=>""}
+						+ Формула
+					%a.btn{:href=>""}
+						+ Картинка
+					%a.btn{:href=>""}
+						Типограф
+					%a.btn#btn-render{:href=>""}
+						Рендер
+					%a.btn.btn-warning#btn-save{:href=>""}
+						Save
+				.span6#problem-render
+					.span5{:style=>"height:300px;width:100%;"}
+					%a.btn.btn-success{:href=>""}
+						Добавить новую задачу
+		.span2
+			%ul.nav.nav-list#problem-list
+				%li.nav-header
+					Текущие задачи
+				- @problems.each do |p|
+					%li
+						%a.problem-load-link{:href=>"", :data=>{:problem_id => p.id} }
+							= p.name
+
+			%br
+			%a.btn.btn-small{:href=>""}
+				Скрыть список задач
+.container-fluid
+	%br
+	.tabbable.tabs-left
+		%ul.nav.nav-tabs
+			%li.active
+				%a{:href=>"#1",:"data-toggle"=>"tab"} Греческие символы
+			%li
+				%a{:href=>"#2",:"data-toggle"=>"tab"} Прочие знаки
+		.tab-content
+			.tab-pane.active#1
+				%p Куча всяких символов
+			.tab-pane#2
+				%p И тут не меньше!
+				%p И тут не меньше!
+

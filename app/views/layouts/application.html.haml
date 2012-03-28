@@ -1,0 +1,97 @@
+!!!
+%html
+	%head
+		%title Phol
+		-#= stylesheet_link_tag :defaults
+		= stylesheet_link_tag "/stylesheets/bootstrap/bootstrap.min.css"
+		= stylesheet_link_tag "/stylesheets/verstka/main.css"
+		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+		= javascript_include_tag :defaults
+		= yield :javascript_includes
+		= csrf_meta_tag
+	%body
+		.container-fluid#header
+			%img.logo.pull-left{ :src => '/images/verstka/logo.png'}
+			.login-panel.pull-right
+				.form-inline
+					.input-append.pull-left
+						%input.span3{ :size => '16', :type => 'text', :placeholder => 'Логин...' }>
+						%span.add-on <i class="icon-user icon-white"></i>
+					%button.btn{:type => 'submit', :style => 'margin-left: 7px;'} Выполнить вход
+					.clear
+				.form-inline
+					.input-append.pull-left
+						%input.span3{ :size => '16', :type => 'password', :placeholder => 'Пароль...' }>
+						%span.add-on <i class="icon-lock icon-white"></i>
+					%label.checkbox{:style => 'padding-left: 25px; padding-top: 4px;'}
+						%input{ :type => 'checkbox'} Запомнить
+				.clear
+				.registration
+					%a Забыли пароль?
+					%span &nbsp&nbsp|&nbsp&nbsp
+					%a Регистрация
+		.container-fluid#main
+			.row-fluid
+				.span4.navigation
+					.lenta-container.right
+						%a.phol www.physolymp.ru
+						%span.arrow →
+					%h2 Олимпиадное движение
+					%ul
+						%li
+							%a история
+						%li 
+							%a наша команда
+						%li 
+							%a этапы всероссийской олимпиады
+						%li 
+							%a приказы министерства
+						%li 
+							%a новостная лента
+					%h2 Архив задач
+					%ul
+						%li
+							%a самое свежее
+						%li
+							%a полный архив
+						%li
+							%a обсуждение решений
+						%li
+							%a.add добавить свою задачу
+					%a
+						%h2 Видео уроки
+					%a
+						%h2 Форум участников и организаторов
+				.span8.body
+					.lenta-container
+						%h1{:style => 'vertical-align: bottom;'} Новостная лента
+					.news-block
+						%h2 
+							%a Предварительные результаты проверки теоретического тура Зонального этапа Московской области
+						%p Доступны предварительные результаты теоретического тура регионального этапа Всероссийской олимпиады школьников по физике.
+						%p Если вы не согласны со своими результатами, то присылайте заявление на электронный адрес physolymp@gmail.com с указанием класса участия, фамилии, имени участника и номера задачи, которая вызывает у вас несогласие. Приём заявлений осуществляется 14 января. Заявления, полученные позже, не рассматриваются. В этот же день вы получите ответ с комментариями.
+						%p Смотреть результаты 9-го класса, 10-го класса, 11-го класса.
+						.pull-left
+							%img.comment-icon{ :src => '/images/verstka/comment.png' }
+							%span.number 17 
+							%a.comments отзывов
+						.pull-right
+							%span.added Добавил
+							%a.name Ерофеев Иван
+							%span.time 19 декабря 2011 в 17:30
+						.clear
+					.news-block
+						%h2 
+							%a Предварительные результаты проверки теоретического тура Зонального этапа Московской области
+						%p Доступны предварительные результаты теоретического тура регионального этапа Всероссийской олимпиады школьников по физике.
+						%p Если вы не согласны со своими результатами, то присылайте заявление на электронный адрес physolymp@gmail.com с указанием класса участия, фамилии, имени участника и номера задачи, которая вызывает у вас несогласие. Приём заявлений осуществляется 14 января. Заявления, полученные позже, не рассматриваются. В этот же день вы получите ответ с комментариями.
+						%p Смотреть результаты 9-го класса, 10-го класса, 11-го класса.
+						.pull-left
+							%img.comment-icon{ :src => '/images/verstka/comment.png' }
+							%span.number 17 
+							%a.comments отзывов
+						.pull-right
+							%span.added Добавил
+							%a.name Ерофеев Иван
+							%span.time 19 декабря 2011 в 17:30
+						.clear
